@@ -32,6 +32,8 @@ class World {
 		requestAnimationFrame(function () {
 			self.draw();
 		});
+
+		
 	}
 
 	addObjectsToMap(objects) {
