@@ -43,6 +43,12 @@ class World {
 	}
 
 	addToMap(mo) {
-		this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
+		try{
+			this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
+				
+			}catch(e){
+				console.warn("Error loading Image")
+				console.log("Could not load image," , this.img.src)
+			}
 	}
 }
