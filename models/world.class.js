@@ -1,7 +1,8 @@
 class World {
   character = new Character();
+  level = level1;
   enemies = level1.enemies;
-  backgroundObject = level1.backgroundObjects;
+  backgroundObject = level1.backgroundObject;
   clouds = level1.clouds;
   ctx;
   canvas;
@@ -23,9 +24,9 @@ class World {
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.translate(this.camera_x, 0);
-    this.addObjectsToMap(this.backgroundObject);
-    this.addObjectsToMap(this.clouds);
-    this.addObjectsToMap(this.enemies);
+    this.addObjectsToMap(this.level.backgroundObject);
+    this.addObjectsToMap(this.level.clouds);
+    this.addObjectsToMap(this.level.enemies);
     this.addToMap(this.character);
     this.ctx.translate(-this.camera_x, 0);
 
