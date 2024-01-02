@@ -15,6 +15,16 @@ class World {
     this.keyboard = keyboard;
     this.draw();
     this.setWorld();
+    this.checkCollisions();
+  }
+  checkCollisions() {
+    setInterval(() => {
+      this.level.enemies.forEach((enemy) => {
+        if (this.character.isColliding(enemy)) {
+          this.character.hit();
+        }
+      });
+    }, 200);
   }
 
   setWorld() {
@@ -46,21 +56,31 @@ class World {
   addToMap(mo) {
     try {
       if (mo.otherDirection) {
-        this.ctx.save();
-        this.ctx.translate(mo.width, 0);
-        this.ctx.scale(-1, 1);
-        mo.x = mo.x * -1;
+        this.flipImage(mo);
       }
-      this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
+      mo.draw(this.ctx);
+
+      mo.drawFrame(this.ctx);
 
       if (mo.otherDirection) {
-        mo.x = mo.x * -1;
-
-        this.ctx.restore();
+        this.flipImageBack(mo);
       }
     } catch (e) {
       console.warn("Error loading Image");
       console.log("Could not load image,", this.img.src);
     }
+  }
+
+  flipImage(mo) {
+    this.ctx.save();
+    this.ctx.translate(mo.width, 0);
+    this.ctx.scale(-1, 1);
+    mo.x = mo.x * -1;
+  }
+
+  flipImageBack(mo) {
+    mo.x = mo.x * -1;
+
+    this.ctx.restore();
   }
 }
