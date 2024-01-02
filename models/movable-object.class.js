@@ -1,13 +1,6 @@
-class MovableObject {
-  x = 150;
-  y = 300;
-  height = 150;
-  width = 100;
-  img;
+class MovableObject  extends DrawAbleObject{
   speed = 0.15;
-  imageCache = {};
   otherDirection = false;
-  currentImage = 0;
   speedY = 0;
   accelaration = 2.5;
   energy = 100;
@@ -34,22 +27,12 @@ class MovableObject {
     this.x -= this.speed;
   }
 
-  loadImage(path) {
-    this.img = new Image();
-    this.img.src = path;
-  }
 
   /**
    *
    * @param {Array} arr - ['img/image1.png', 'img/image2.png', ...]
    */
-  loadImages(arr) {
-    arr.forEach((path) => {
-      let img = new Image();
-      img.src = path;
-      this.imageCache[path] = img;
-    });
-  }
+
 
   playAnimation(images) {
     let i = this.currentImage % images.length;
@@ -62,19 +45,9 @@ class MovableObject {
     this.speedY = 30;
   }
 
-  draw(ctx) {
-    ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-  }
+ 
 
-  drawFrame(ctx) {
-    if (this instanceof Character || this instanceof Chicken) {
-      ctx.beginPath();
-      ctx.lineWidth = "6";
-      ctx.strokeStyle = "blue";
-      ctx.rect(this.x, this.y, this.width, this.height);
-      ctx.stroke();
-    }
-  }
+ 
 
   isColliding(obj) {
     return (
@@ -99,14 +72,17 @@ class MovableObject {
   }
 
   isHurt() {
-    let timepassed = new Date().getTime() - this.lastHit; // Difference in ms
+    let timepassed = new Date().getTime()  - this.lastHit; // Difference in ms
 
-    timepassed = timepassed / 1000; // DIfference in s#
+	timepassed = timepassed / 1000; // DIfference in s#
+	
+	if(timepassed < 1){
+		return true
 
-    if (timepassed < 1) {
-      return true;
-    } else {
-      return false;
-    }
+	}else{
+		return false;
+		
+ 	}
+
   }
 }
