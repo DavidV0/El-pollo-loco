@@ -4,9 +4,10 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="/style.css" />
-		<script src="./models/drawable-object.class.js"></script>
-		<script src="./models/movable-object.class.js"></script>
-		<script src="./models/throwable-object.class.js"></script>
+		<script src="./models/drawable-object.class.js" ></script>
+		<script src="./models/movable-object.class.js" ></script>
+		<script src="./models/throwable-object.class.js" ></script>
+		<script src="./models/titlescreen.class.js" ></script>
 
 		<script src="./models/character.class.js"></script>
 		<script src="./models/chicken.class.js"></script>
@@ -25,7 +26,12 @@
 	</head>
 	<body onload="init()">
 		<h1>El pollo loco</h1>
+		<button id="startGameBtn">Start Game</button>
+		<img class="startScreenBtn" id="muteBtn" src="./img/start_screen_buttons/unmute.svg" alt="mute">
+		<img class="startScreenBtn" id="fullscreenBtn" src="./img/start_screen_buttons/fullscreen.svg" alt="fullscreen">
+		<img class="startScreenBtn" id="menuBtn" src="./img/start_screen_buttons/menu.svg" alt="menu">
 		<canvas id="canvas" width="720" height="480"></canvas>
+		
 	</body>
 </html>
 	

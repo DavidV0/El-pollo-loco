@@ -2,12 +2,17 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
+let startGameBtn = document.getElementById("startGameBtn");
+let muteBtn = document.getElementById("muteBtn");
+let fullscreenBtn = document.getElementById("fullscreenBtn");
+let menuBtn = document.getElementById("menuBtn");
+
 
 function init() {
 	canvas = document.getElementById('canvas');
 	world = new World(canvas, keyboard);
 	ctx = canvas.getContext('2d');
-
+	loadButtons();
 	console.log('My character is ', world.character);
 }
 
@@ -53,3 +58,8 @@ document.addEventListener("keyup" , (e) =>{
 		keyboard.D = false;
 	}
 })
+
+
+function loadButtons(){
+
+}

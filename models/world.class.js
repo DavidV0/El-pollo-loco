@@ -9,6 +9,7 @@ class World {
   keyboard;
   camera_x = 0;
   statusBar = new StatusBar();
+  titleScreen = new TitleScreen(720, 480);
   throwableObjects = [];
 
   constructor(canvas, keyboard) {
@@ -66,6 +67,8 @@ class World {
     this.addToMap(this.statusBar);
     this.ctx.translate(this.camera_x, 0); // Forward
     this.ctx.translate(-this.camera_x, 0);
+    this.addToMap(this.titleScreen)
+
 
     //Draw() wird immer wieder aufgerufen
     let self = this;
