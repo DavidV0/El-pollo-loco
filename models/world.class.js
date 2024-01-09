@@ -1,5 +1,10 @@
 class World {
+  soundArray = [];
+  mute = true;
+  gamePaused = true;
+  win = false;
   character = new Character();
+  startGameBtn = document.getElementById('startGameBtn');
   level = level1;
   enemies = level1.enemies;
   backgroundObject = level1.backgroundObject;
@@ -19,8 +24,25 @@ class World {
     this.draw();
     this.setWorld();
     this.run();
+    this.startGameBtn.addEventListener('click', () => this.startGame());
   }
 
+  startGame() {
+    this.character.fallsAsleep = 0;
+    this.character.otherDirection = false;
+    setTimeout(() => {
+        this.character.speed = 5.5;
+        this.startGameBtn.classList.remove('d-flex');
+        this.startGameBtn.classList.add('d-none');
+        this.gamePaused = false;
+        this.mute = false;
+        this.homeMenu = false;
+        this.titleScreen = null;
+        this.draw();
+        this.setWorld();
+        this.run();
+    }, 200);
+}
 
   run() {
     setInterval(() => {
