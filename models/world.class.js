@@ -1,12 +1,9 @@
 class World {
-  soundArray = [];
-  mute = true;
-  gamePaused = true;
-  win = false;
   character = new Character();
-  startGameBtn = document.getElementById('startGameBtn');
+  startGameBtn = document.getElementById("startGameBtn");
   level = level1;
   enemies = level1.enemies;
+  coins = level1.coins;
   backgroundObject = level1.backgroundObject;
   clouds = level1.clouds;
   ctx;
@@ -14,6 +11,8 @@ class World {
   keyboard;
   camera_x = 0;
   statusBar = new StatusBar();
+  bottleStatusBar = new BottleStatusBar();
+  coinStatusBar = new CoinStatusBar();
   titleScreen = new TitleScreen(720, 480);
   throwableObjects = [];
 
@@ -21,51 +20,44 @@ class World {
     this.ctx = canvas.getContext("2d");
     this.canvas = canvas;
     this.keyboard = keyboard;
-    this.draw();
     this.setWorld();
-    this.run();
-    this.startGameBtn.addEventListener('click', () => this.startGame());
+    this.draw();
+    this.startGameBtn.addEventListener("click", () => this.startGame());
   }
 
   startGame() {
-    this.character.fallsAsleep = 0;
     this.character.otherDirection = false;
     setTimeout(() => {
-        this.character.speed = 5.5;
-        this.startGameBtn.classList.remove('d-flex');
-        this.startGameBtn.classList.add('d-none');
-        this.gamePaused = false;
-        this.mute = false;
-        this.homeMenu = false;
-        this.titleScreen = null;
-        this.draw();
-        this.setWorld();
-        this.run();
-    }, 200);
-}
+      this.character.speed = 5.5;
+      this.startGameBtn.classList.add("d-none");
+      this.titleScreen = null;
 
-  run() {
-    setInterval(() => {
-
-
-      this.checkCollisions();
-      this.checkThrowObjects();
-     
+      this.run();
     }, 200);
   }
 
-  checkThrowObjects(){
-    if(this.keyboard.D){
-      let bottle = new ThrowableObject(this.character.x + 50, this.character.y + 50);
+  run() {
+    setInterval(() => {
+      this.checkCollisions();
+      this.checkThrowObjects();
+    }, 200);
+  }
+
+  checkThrowObjects() {
+    if (this.keyboard.D) {
+      let bottle = new ThrowableObject(
+        this.character.x + 50,
+        this.character.y + 50
+      );
       this.throwableObjects.push(bottle);
     }
   }
 
-  checkCollisions(){
+  checkCollisions() {
     this.level.enemies.forEach((enemy) => {
       if (this.character.isColliding(enemy)) {
         this.character.hit();
-        this.statusBar.setPercentage(this.character.energy)
+        this.statusBar.setPercentage(this.character.energy);
       }
     });
   }
@@ -78,19 +70,21 @@ class World {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.translate(this.camera_x, 0);
     this.addObjectsToMap(this.level.backgroundObject);
-    this.addObjectsToMap(this.throwableObjects)
-
+    this.addObjectsToMap(this.throwableObjects);
+    
     this.addObjectsToMap(this.level.clouds);
     this.addObjectsToMap(this.level.enemies);
     this.addToMap(this.character);
-
     // --------Space for fixed objects
+
     this.ctx.translate(-this.camera_x, 0); // Back
     this.addToMap(this.statusBar);
+    this.addToMap(this.bottleStatusBar);
+    this.addToMap(this.coinStatusBar);
+    
     this.ctx.translate(this.camera_x, 0); // Forward
     this.ctx.translate(-this.camera_x, 0);
-    this.addToMap(this.titleScreen)
-
+    this.addToMap(this.titleScreen);
 
     //Draw() wird immer wieder aufgerufen
     let self = this;
@@ -100,9 +94,16 @@ class World {
   }
 
   addObjectsToMap(objects) {
-    objects.forEach((obj) => {
-      this.addToMap(obj);
-    });
+  
+      try {
+        objects.forEach((obj) => {
+        this.addToMap(obj);
+        });
+      } catch (error) {
+        console.log(obj)
+      }
+  
+  
   }
 
   addToMap(mo) {
@@ -119,7 +120,7 @@ class World {
       }
     } catch (e) {
       console.warn("Error loading Image");
-      console.log("Could not load image,", this.img.src);
+      console.log("Could not load image,", this.img, this.img.src);
     }
   }
 
