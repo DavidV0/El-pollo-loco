@@ -1,162 +1,194 @@
 body {
 	display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Smokum';
-	background-image: url("./img/5_background/second_half_background.png") ;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 95vh;
-    margin-bottom: 40px;
-
-	
-	
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Smokum';
+	background-image: url('./img/5_background/second_half_background.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 95vh;
+	margin-bottom: 40px;
 }
 
 .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
-.container{
+.container {
 	height: 480px;
-    width: 720px;
-    position: absolute;
+	width: 720px;
+	position: absolute;
 }
 canvas {
 	background-position: center;
-    background-size: 720px 480px;
-    display: block;
-    border-radius: 20px;
-    position: relative;
+	background-size: 720px 480px;
+	display: block;
+	border-radius: 20px;
+	position: relative;
 }
 
-h1{
-    font-size: 70px;
-    letter-spacing: 3px;
-    text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.6), -3px -3px 6px rgba(255, 255, 255, 0.6);
-    position: absolute;
-    top: 0;
-    margin-left: 5%;
-    margin-top: 20px;
+h1 {
+	font-size: 70px;
+	letter-spacing: 3px;
+	text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.6),
+		-3px -3px 6px rgba(255, 255, 255, 0.6);
+	position: absolute;
+	top: 0;
+	margin-left: 5%;
+	margin-top: 20px;
 }
 
 #startGameBtn {
-    position: absolute;
-    left: 35%;
-    top: 6%;
-    background-color: #FF9600;
-    color: white;
-    font-size: 38px;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    border: white 4px solid;
-    width: 200px;
-    height: 44px;
-    transform: skew(-20deg) scale(1);
-    animation: buttonScale 1.5s infinite;
-    font-family: 'Smokum';
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
+	position: absolute;
+	left: 35%;
+	top: 6%;
+	background-color: #ff9600;
+	color: white;
+	font-size: 38px;
+	text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 10px;
+	border: white 4px solid;
+	width: 200px;
+	height: 44px;
+	transform: skew(-20deg) scale(1);
+	animation: buttonScale 1.5s infinite;
+	font-family: 'Smokum';
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 10;
 }
 @keyframes buttonScale {
-    0% {
-        transform: skew(-20deg) scale(1);
-    }
+	0% {
+		transform: skew(-20deg) scale(1);
+	}
 
-    50% {
-        transform: skew(-20deg) scale(1.1);
-    }
+	50% {
+		transform: skew(-20deg) scale(1.1);
+	}
 
-    100% {
-        transform: skew(-20deg) scale(1);
-    }
+	100% {
+		transform: skew(-20deg) scale(1);
+	}
 }
 
 #startGameBtn:hover {
-    background-color: #FFB900;
+	background-color: #ffb900;
 }
 
 #restartBtn {
-    position: absolute;
-    left: 44%;
-    bottom: 6%;
-    background-color: #FF9600;
-    color: white;
-    font-size: 45px;
-    padding: 10px;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
-    cursor: pointer;
-    border-radius: 10px;
-    border: white 4px solid;
-    width: 200px;
-    height: 44px;
-    transform: skew(-20deg);
-    font-family: 'Smokum';
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
+	position: absolute;
+	left: 44%;
+	bottom: 6%;
+	background-color: #ff9600;
+	color: white;
+	font-size: 45px;
+	padding: 10px;
+	text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+	cursor: pointer;
+	border-radius: 10px;
+	border: white 4px solid;
+	width: 200px;
+	height: 44px;
+	transform: skew(-20deg);
+	font-family: 'Smokum';
+	display: none;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
 }
 
 #restartBtn:hover {
-    background-color: #FFB900;
-    width: 204px;
-    height: 48px;
+	background-color: #ffb900;
+	width: 204px;
+	height: 48px;
 }
 
 #fullscreenBtn {
-    position: absolute;
-    z-index: 10;
-    right: 5px;
-    top: 5px;
-    cursor: pointer;
-    height: 45px;
-    width: 45px;
+	position: absolute;
+	z-index: 10;
+	right: 5px;
+	top: 5px;
+	cursor: pointer;
+	height: 45px;
+	width: 45px;
 }
 
 #fullscreenBtn:hover {
-    height: 50px;
-    width: 50px;
+	height: 50px;
+	width: 50px;
 }
 
-#menuBtn{
-    position: absolute;
-    z-index: 10;
-    right: 120px;
-    height: 45px;
-    width: 45px;
-    top: 4px;
-    cursor: pointer;
+#menuBtn {
+	position: absolute;
+	z-index: 10;
+	right: 120px;
+	height: 45px;
+	width: 45px;
+	top: 4px;
+	cursor: pointer;
 }
 
 #menuBtn:hover {
-    height: 50px;
-    width: 50px;
+	height: 50px;
+	width: 50px;
 }
 
 #muteBtn {
-    position: absolute;
-    z-index: 10;
-    height: 43px;
-    width: 43px;
-    right: 60px;
-    top: 6px;
-    cursor: pointer;
+	position: absolute;
+	z-index: 10;
+	height: 43px;
+	width: 43px;
+	right: 60px;
+	top: 6px;
+	cursor: pointer;
 }
 
 #muteBtn:hover {
-    height: 49px;
-    width: 49px;
+	height: 49px;
+	width: 49px;
 }
 
-.d-none{
-	display: none;
+.key-description {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 720px;
+	font-size: 20px;
+	letter-spacing: 0.5px;
+	margin-bottom: 8px;
+}
+
+.key {
+	display: flex;
+	align-items: center;
+}
+
+.key img {
+	height: 32px;
+	margin-right: 4px;
+}
+
+.key-text {
+	margin-top: 4px;
+}
+
+.D {
+	border: 3.5px solid black;
+	border-radius: 7px;
+	font-family: 'Smokum';
+	font-weight: 800;
+	font-size: 18.5px;
+	padding: 0px 6px;
+	margin-right: 4px;
+}
+
+.d-none {
+	display: none !important;
 }

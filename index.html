@@ -1,61 +1,88 @@
 <!DOCTYPE html>
 <html lang="en" translate="no">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style.css" />
-    <script src="./models/drawable-object.class.js"></script>
-    <script src="./models/movable-object.class.js"></script>
-    <script src="./models/throwable-object.class.js"></script>
-    <script src="./models/titlescreen.class.js"></script>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Economica:wght@700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Smokum&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/style.css" />
+		<script src="./models/drawable-object.class.js"></script>
+		<script src="./models/movable-object.class.js"></script>
+		<script src="./models/throwable-object.class.js"></script>
+		<script src="./models/titlescreen.class.js"></script>
 
-    <script src="./models/character.class.js"></script>
-    <script src="./models/chicken.class.js"></script>
-    <script src="./models/cloud.class.js"></script>
-    <script src="./models/status-bar.class.js"></script>
-    <script src="./models/lootable-object.class.js"></script>
-    <script src="./models/bottle-status-bar.class.js"></script>
-    <script src="./models/coin-status-bar.class.js"></script>
+		<script src="./models/character.class.js"></script>
+		<script src="./models/chicken.class.js"></script>
+		<script src="./models/cloud.class.js"></script>
+		<script src="./models/status-bar.class.js"></script>
+		<script src="./models/lootable-object.class.js"></script>
+		<script src="./models/bottle-status-bar.class.js"></script>
+		<script src="./models/coin-status-bar.class.js"></script>
 
+		<script src="./models/coin.class.js"></script>
 
-    <script src="./models/coin.class.js"></script>
+		<script src="./models/world.class.js"></script>
+		<script src="./models/background-object.class.js"></script>
+		<script src="./models/keyboard.class.js"></script>
+		<script src="./models/level.class.js"></script>
+		<script src="./models/endboss.class.js"></script>
+		<script src="./levels/level1.js"></script>
 
-    <script src="./models/world.class.js"></script>
-    <script src="./models/background-object.class.js"></script>
-    <script src="./models/keyboard.class.js"></script>
-    <script src="./models/level.class.js"></script>
-    <script src="./models/endboss.class.js"></script>
-    <script src="./levels/level1.js"></script>
+		<script src="./js/game.js"></script>
+		<title>El Pollo Loco</title>
+	</head>
+	<body onload="init()">
+		<div class="content">
+			<h1>El pollo loco</h1>
+			<div class="container">
+				<button id="startGameBtn">Start Game</button>
+				<img
+					id="muteBtn"
+					src="./img/start_screen_buttons/unmute.svg"
+					alt="mute"
+				/>
+				<img
+					onclick="toggleFullscreen()"
+					id="fullscreenBtn"
+					src="./img/start_screen_buttons/fullscreen.svg"
+					alt="fullscreen"
+				/>
+				<img
+					id="menuBtn"
+					src="./img/start_screen_buttons/menu.svg"
+					alt="menu"
+					onclick="openMenu()"
+				/>
+				<div class="d-none" id="menu">
+					<h2>Menu</h2>
+				</div>
+				<div class="d-none" id="restartBtn">Restart Game</div>
 
-    <script src="./js/game.js"></script>
-    <title>El Pollo Loco</title>
-  </head>
-  <body onload="init()">
-    <div class="content">
-      <h1>El pollo loco</h1>
-      <div class="container">
-        <button id="startGameBtn">Start Game</button>
-        <img
-          id="muteBtn"
-          src="./img/start_screen_buttons/unmute.svg"
-          alt="mute"
-        />
-        <img
-          onclick="toggleFullscreen()"
-          id="fullscreenBtn"
-          src="./img/start_screen_buttons/fullscreen.svg"
-          alt="fullscreen"
-        />
-        <img
-          id="menuBtn"
-          src="./img/start_screen_buttons/menu.svg"
-          alt="menu"
-        />
-        <div class="d-none" id="menu">Menu</div>
-        <div class="d-none" id="restartBtn">Restart Game</div>
+				<canvas id="canvas" width="720" height="480"></canvas>
 
-        <canvas id="canvas" width="720" height="480"></canvas>
-      </div>
-    </div>
-  </body>
+				<div class="key-description">
+					<div class="key">
+						<img src="./img/start_screen_buttons/left.png" />
+						<span class="key-text">WALK LEFT</span>
+					</div>
+					<div class="key">
+						<img src="./img/start_screen_buttons/right.png" />
+						<span class="key-text">WALK RIGHT</span>
+					</div>
+					<div class="key">
+						<img src="./img/start_screen_buttons/space.png" />
+						<span class="key-text">JUMP</span>
+					</div>
+					<div class="key" style="margin-top: 1px">
+						<span class="D">D</span>
+						<span class="key-text">THROW BOTTLE</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
