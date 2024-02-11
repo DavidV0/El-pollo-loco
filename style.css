@@ -155,7 +155,7 @@ h1 {
 	width: 49px;
 }
 
-.key-description {
+.htp-description {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -165,21 +165,21 @@ h1 {
 	margin-bottom: 8px;
 }
 
-.key {
+.htp-btn {
 	display: flex;
 	align-items: center;
 }
 
-.key img {
+.htp-btn img {
 	height: 32px;
 	margin-right: 4px;
 }
 
-.key-text {
+.htp-btn-text {
 	margin-top: 4px;
 }
 
-.D {
+.d {
 	border: 3.5px solid black;
 	border-radius: 7px;
 	font-family: 'Smokum';

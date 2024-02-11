@@ -32,7 +32,7 @@
 		<script src="./models/endboss.class.js"></script>
 		<script src="./levels/level1.js"></script>
 
-		<script src="./js/game.js"></script>
+		<script defer src="./js/game.js"></script>
 		<title>El Pollo Loco</title>
 	</head>
 	<body onload="init()">
@@ -42,8 +42,9 @@
 				<button id="startGameBtn">Start Game</button>
 				<img
 					id="muteBtn"
-					src="./img/start_screen_buttons/unmute.svg"
+					src="./img/start_screen_buttons/mute.svg"
 					alt="mute"
+					onclick="toggleMusic()"
 				/>
 				<img
 					onclick="toggleFullscreen()"
@@ -64,22 +65,22 @@
 
 				<canvas id="canvas" width="720" height="480"></canvas>
 
-				<div class="key-description">
-					<div class="key">
+				<div class="htp-description">
+					<div class="htp-btn">
 						<img src="./img/start_screen_buttons/left.png" />
-						<span class="key-text">WALK LEFT</span>
+						<span class="htp-btn-text">WALK LEFT</span>
 					</div>
-					<div class="key">
+					<div class="htp-btn">
 						<img src="./img/start_screen_buttons/right.png" />
-						<span class="key-text">WALK RIGHT</span>
+						<span class="htp-btn-text">WALK RIGHT</span>
 					</div>
-					<div class="key">
+					<div class="htp-btn">
 						<img src="./img/start_screen_buttons/space.png" />
-						<span class="key-text">JUMP</span>
+						<span class="htp-btn-text">JUMP</span>
 					</div>
-					<div class="key" style="margin-top: 1px">
-						<span class="D">D</span>
-						<span class="key-text">THROW BOTTLE</span>
+					<div class="htp-btn" style="margin-top: 1px">
+						<span class="d">D</span>
+						<span class="htp-btn-text">THROW BOTTLE</span>
 					</div>
 				</div>
 			</div>
