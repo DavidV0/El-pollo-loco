@@ -36,8 +36,6 @@ document.addEventListener('fullscreenchange', function () {
 function openMenu() {}
 
 function toggleMusic() {
-	console.log(muteBtn);
-
 	if (playMusic === true) {
 		muteBtn.src = './img/start_screen_buttons/mute.svg';
 		playMusic = false;
