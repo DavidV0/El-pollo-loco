@@ -81,13 +81,14 @@ class World {
 		// --------Space for fixed objects
 
 		this.ctx.translate(-this.camera_x, 0); // Back
+
 		this.addToMap(this.statusBar);
 		this.addToMap(this.bottleStatusBar);
 		this.addToMap(this.coinStatusBar);
+		this.addToMap(this.titleScreen);
 
 		this.ctx.translate(this.camera_x, 0); // Forward
 		this.ctx.translate(-this.camera_x, 0);
-		this.addToMap(this.titleScreen);
 
 		//Draw() wird immer wieder aufgerufen
 		let self = this;
